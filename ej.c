@@ -3,24 +3,22 @@
 int main(){
 
 int num;
+FILE *doc=NULL;
 FILE *vector=NULL;
 vector=fopen("vector.txt","r");
-
-FILE *vector2=NULL;
-
-
-vector2=fopen("vector2.txt","w");
+doc=fopen("doc.txt","w");
    
    int cont=1;
-   while (!feof(vector))
-   {
+ 
+    while (!feof(vector)){
     fscanf(vector, "%d", &num);
+   
 
         if (num%5==0)
         {
-            fprintf(vector2," %d Es multiplo del numero 5 \n", num);
+            fprintf(doc," %d Es multiplo del numero 5 \n", num);
         }else{
-            fprintf(vector2," %d \n ", num);
+            fprintf(doc," %d \n ", num);
         }
         
 
@@ -28,7 +26,7 @@ vector2=fopen("vector2.txt","w");
    
     
     fclose(vector);
-    fclose(vector2);
+    fclose(doc);
 
     return 0;
 
